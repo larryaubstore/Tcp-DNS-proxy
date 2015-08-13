@@ -304,11 +304,11 @@ def transfer(querydata, addr, server):
         DNS_SERVERS = \
                 UDPMODE and cfg['udp_dns_server'] or cfg['tcp_dns_server']
 
-    if cfg['internal_dns_server'] and cfg['internal_domain']:
-        for item in cfg['internal_domain']:
-            if fnmatch(q_domain, item):
-                UDPMODE = True
-                DNS_SERVERS = cfg['internal_dns_server']
+#    if cfg['internal_dns_server'] and cfg['internal_domain']:
+#        for item in cfg['internal_domain']:
+#            if fnmatch(q_domain, item):
+#                UDPMODE = True
+#                DNS_SERVERS = cfg['internal_dns_server']
 
     if LRUCACHE and  key in LRUCACHE:
         response = LRUCACHE[key]
@@ -365,6 +365,7 @@ class ThreadedUDPRequestHandler(SocketServer.BaseRequestHandler):
 
 
 from daemon import Daemon
+#from daemon import daemon
 class RunDaemon(Daemon):
 
     def run(self):
